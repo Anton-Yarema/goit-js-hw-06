@@ -5,5 +5,9 @@ let outputRef = document.querySelector("#name-output");
 console.log(outputRef);
 
 inputRef.addEventListener("input", (e) => {
-  outputRef.textContent = `${inputRef.value}`;
+  if (inputRef.value) {
+    outputRef.textContent = `${inputRef.value}`;
+  } else {
+    outputRef.textContent = "Anonymous";
+  }
 });

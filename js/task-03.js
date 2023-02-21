@@ -13,17 +13,28 @@ const images = [
   },
 ];
 
+const makeTranzactionMarkUp = (tranzaction) => {
+  const { url, alt } = tranzaction;
+  return `
+  <li>
+  <img src=${url} alt="${alt}" width="320">
+  </li>  
+  `;
+};
 const ulRef = document.querySelector(".gallery");
+const makeImagesRowMarkUp = images.map(makeTranzactionMarkUp).join(" ");
 
-const listRef = images.map(({ url, alt }) => {
-  const galleryItemRef = document.createElement("li");
-  ulRef.append(galleryItemRef);
-  galleryItemRef.insertAdjacentHTML(
-    "beforeend",
-    `<img src=${url} alt="${alt}" width="320">`
-  );
-  return galleryItemRef;
-});
+ulRef.insertAdjacentHTML("afterbegin", makeImagesRowMarkUp);
 
-ulRef.append(...listRef);
-console.log(ulRef);
+// const listRef = images.map(({ url, alt }) => {
+//   const galleryItemRef = document.createElement("li");
+//   ulRef.append(galleryItemRef);
+//   galleryItemRef.insertAdjacentHTML(
+//     "beforeend",
+//     `<img src=${url} alt="${alt}" width="320">`
+//   );
+//   return galleryItemRef;
+// });
+
+// ulRef.append(...listRef);
+// console.log(ulRef);
