@@ -11,11 +11,15 @@ function onFormRefSubmit(e) {
   if (email === "" || password === "") {
     return alert("Please fill in all the fields!");
   } else {
-    const formData = new FormData(e.currentTarget);
-    formData.forEach((value, name) => {
-      console.log(name);
-      console.log(value);
-    });
+    // const formData = new FormData(e.currentTarget);
+    // formData.forEach((value, name) => {
+    //   console.log(name);
+    //   console.log(value);
+    // });
+    const formData = {
+      email,
+      password,
+    };
     console.log(formData);
 
     e.currentTarget.reset();
